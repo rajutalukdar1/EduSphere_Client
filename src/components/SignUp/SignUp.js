@@ -1,7 +1,43 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../Context/UserContext';
 
 const SignUp = () => {
+    const { createUser, signInWithGoogle } = useContext(AuthContext);
+
+    const handelSubmit = event => {
+        event.preventDefault();
+
+        const form = event.target;
+        // const fName = form.firstName.value;
+        // const lName = form.lastName.value;
+        const email = form.email.value;
+        const password = form.password.value;
+
+        createUser(email, password)
+            .then(result => {
+                const user = result.user;
+                console.log(user);
+                // setError('');
+                form.reset();
+                // handelUpdateUserProfile(name, photoURL);
+            })
+            .catch(error => {
+                console.error(error);
+                // setError(error.message)
+            })
+    }
+    const handleGoogleSignIn = () => {
+        signInWithGoogle()
+            .then(result => {
+                const user = result.user;
+                console.log(user);
+            })
+            .catch(error => {
+                console.error('error', error);
+            })
+    }
+
     return (
         <div className="hero min-h-screen bg-base-200">
             <div className="hero-content flex-col">
@@ -9,18 +45,18 @@ const SignUp = () => {
                     <h1 className="text-5xl font-bold">Please Register now!!!!</h1>
                 </div>
                 <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
-                    <form className="card-body">
+                    <form onSubmit={handelSubmit} className="card-body">
                         <div className="form-control">
                             <label className="label">
-                                <span className="label-text">Full Name</span>
+                                <span className="label-text">First Name</span>
                             </label>
-                            <input type="text" name='fullName' placeholder="Full Name" className="input input-bordered" required />
+                            <input type="text" name='firstName' placeholder="First Name" className="input input-bordered" required />
                         </div>
                         <div className="form-control">
                             <label className="label">
-                                <span className="label-text">Photo URL</span>
+                                <span className="label-text">Last Name</span>
                             </label>
-                            <input type="text" name='photoURL' placeholder="Photo URL" className="input input-bordered" required />
+                            <input type="text" name='lastName' placeholder="Last Name" className="input input-bordered" required />
                         </div>
                         <div className="form-control">
                             <label className="label">
@@ -45,7 +81,7 @@ const SignUp = () => {
                 </div>
                 <p className='text-center'>-------------Or-------------</p>
                 <div>
-                    <Link>
+                    <Link onClick={handleGoogleSignIn}>
                         <div className='flex justify-content-center align-items-center mt-3'>
                             <div className='flex justify-between items-center login-container'>
                                 <div className='w-10 h-10 ml-1'>

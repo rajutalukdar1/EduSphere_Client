@@ -1,29 +1,40 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../../Context/UserContext';
 
 const Header = () => {
-    const url = 'https://i.ibb.co/s2CQR5G/Cartoon-Teacher-PNG-Free-Download.png';
+    const { logOut, user } = useContext(AuthContext);
 
+    const handelLogOut = () => {
+        logOut()
+            .then(() => { })
+            .catch(error => console.error(error));
+    }
+
+    const url = 'https://i.ibb.co/s2CQR5G/Cartoon-Teacher-PNG-Free-Download.png';
     const menuItems = <>
         <li className='font-semibold'><Link to='/'>Home</Link></li>
-        <li className='font-semibold'><Link to='/'>Services</Link></li>
-        <li className='font-semibold'><Link to='/'>My Review</Link></li>
         <li className='font-semibold'><Link to='/blog'>Blog</Link></li>
-        <li className='font-semibold'><Link to='/login'>login</Link></li>
-        <li className='font-semibold'><Link to='/'>LogOut</Link></li>
-        <li className='font-semibold'><Link to='/signup'>Register</Link></li>
 
-        {/* {
+
+
+        {
             user?.email ?
                 <>
-                    <li className='font-semibold'><Link to='/orders'>Orders</Link></li>
+                    <li className='font-semibold'><Link to='/'>Services</Link></li>
+                    <li className='font-semibold'><Link to='/'>My Review</Link></li>
+
                     <li className='font-semibold'>
                         <button onClick={handelLogOut} className='btn-ghost'>Log Out</button>
                     </li>
                 </>
                 :
-                <li className='font-semibold'><Link to='/login'>Login</Link></li>
-        } */}
+                <>
+                    <li className='font-semibold'><Link to='/login'>Login</Link></li>
+                    <li className='font-semibold'><Link to='/signup'>Register</Link></li>
+                </>
+
+        }
 
     </>
 

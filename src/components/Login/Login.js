@@ -1,8 +1,44 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../Context/UserContext';
 import './Login.css';
 
 const Login = () => {
+    const { signIn, signInWithGoogle } = useContext(AuthContext);
+
+    const handelSignIn = event => {
+        event.preventDefault();
+
+        const form = event.target;
+        const email = form.email.value;
+        const password = form.password.value;
+        console.log(email, password);
+
+        signIn(email, password)
+            .then(result => {
+                const user = result.user;
+                console.log(user);
+                form.reset();
+                // setError('');
+                // navigate(from, { replace: true });
+
+            })
+            .catch(error => {
+                console.error(error);
+                // setError(error.message)
+            })
+    }
+
+    const handleGoogleSignIn = () => {
+        signInWithGoogle()
+            .then(result => {
+                const user = result.user;
+                console.log(user);
+            })
+            .catch(error => {
+                console.error(error);
+            })
+    }
     return (
         <div className="hero min-h-screen bg-base-200">
             <div className="hero-content flex-col">
@@ -10,7 +46,7 @@ const Login = () => {
                     <h1 className="text-5xl font-bold">Login now!!</h1>
                 </div>
                 <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
-                    <form className="card-body">
+                    <form onSubmit={handelSignIn} className="card-body">
                         <div className="form-control">
                             <label className="label">
                                 <span className="label-text">Email</span>
@@ -35,7 +71,7 @@ const Login = () => {
                 </div>
                 <p className='text-center'>-------------Or-------------</p>
                 <div>
-                    <Link>
+                    <Link onClick={handleGoogleSignIn}>
                         <div className='flex justify-content-center align-items-center mt-3'>
                             <div className='flex justify-between items-center login-container'>
                                 <div className='w-10 h-10 ml-1'>
