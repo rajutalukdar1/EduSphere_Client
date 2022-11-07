@@ -6,8 +6,12 @@ const Header = () => {
 
     const menuItems = <>
         <li className='font-semibold'><Link to='/'>Home</Link></li>
-        <li className='font-semibold'><Link to='/'>Course</Link></li>
-        <li className='font-semibold'><Link to='/'>Blog</Link></li>
+        <li className='font-semibold'><Link to='/'>Services</Link></li>
+        <li className='font-semibold'><Link to='/'>My Review</Link></li>
+        <li className='font-semibold'><Link to='/blog'>Blog</Link></li>
+        <li className='font-semibold'><Link to='/login'>login</Link></li>
+        <li className='font-semibold'><Link to='/'>LogOut</Link></li>
+        <li className='font-semibold'><Link to='/signup'>Register</Link></li>
 
         {/* {
             user?.email ?
@@ -34,7 +38,7 @@ const Header = () => {
                         {menuItems}
                     </ul>
                 </div>
-                <Link to='/' className='w-1/5'>
+                <Link to='/' className='w-1/2'>
                     <img src={url} alt="" />
                 </Link>
                 <Link to='/'>Teacher</Link>
