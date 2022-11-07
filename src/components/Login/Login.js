@@ -1,5 +1,6 @@
 import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
+import { toast } from 'react-toastify';
 import { AuthContext } from '../Context/UserContext';
 import './Login.css';
 
@@ -18,6 +19,9 @@ const Login = () => {
             .then(result => {
                 const user = result.user;
                 console.log(user);
+                if (user.uid) {
+                    toast.success('Login successfully');
+                }
                 form.reset();
                 // setError('');
                 // navigate(from, { replace: true });
@@ -34,6 +38,9 @@ const Login = () => {
             .then(result => {
                 const user = result.user;
                 console.log(user);
+                if (user.uid) {
+                    toast.success('Login successfully');
+                }
             })
             .catch(error => {
                 console.error(error);
