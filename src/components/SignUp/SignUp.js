@@ -1,5 +1,6 @@
 import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
+import { toast } from 'react-toastify';
 import { AuthContext } from '../Context/UserContext';
 
 const SignUp = () => {
@@ -18,6 +19,11 @@ const SignUp = () => {
             .then(result => {
                 const user = result.user;
                 console.log(user);
+                if (user.uid) {
+                    toast('Login successfully', {
+                        position: "top-center"
+                    });
+                }
                 // setError('');
                 form.reset();
                 // handelUpdateUserProfile(name, photoURL);
@@ -32,6 +38,11 @@ const SignUp = () => {
             .then(result => {
                 const user = result.user;
                 console.log(user);
+                if (user.uid) {
+                    toast('Login successfully', {
+                        position: "top-center"
+                    });
+                }
             })
             .catch(error => {
                 console.error('error', error);

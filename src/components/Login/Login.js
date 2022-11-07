@@ -20,7 +20,9 @@ const Login = () => {
                 const user = result.user;
                 console.log(user);
                 if (user.uid) {
-                    toast.success('Login successfully');
+                    toast('Login successfully', {
+                        position: "top-center"
+                    });
                 }
                 form.reset();
                 // setError('');
@@ -39,7 +41,9 @@ const Login = () => {
                 const user = result.user;
                 console.log(user);
                 if (user.uid) {
-                    toast.success('Login successfully');
+                    toast('Login successfully', {
+                        position: "top-center"
+                    });
                 }
             })
             .catch(error => {

@@ -1,6 +1,7 @@
 import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../Context/UserContext';
+import { FaUserCircle } from 'react-icons/fa';
 
 const Header = () => {
     const { logOut, user } = useContext(AuthContext);
@@ -39,7 +40,7 @@ const Header = () => {
     </>
 
     return (
-        <div className="navbar h-40 mb-12 pt-12 bg-base-100 shadow-lg">
+        <div className="navbar mb-12 pt-12 bg-base-100 h-28 lg:h-40 shadow-lg">
             <div className="navbar-start">
                 <div className="dropdown">
                     <label tabIndex={0} className="btn btn-ghost lg:hidden">
@@ -49,10 +50,10 @@ const Header = () => {
                         {menuItems}
                     </ul>
                 </div>
-                <Link to='/' className='w-1/2'>
+                <Link to='/' className='w-1/3'>
                     <img src={url} alt="" />
                 </Link>
-                <Link to='/'>Teacher</Link>
+                <Link className=' font-semibold text-xl text-cyan-400' to='/'>My Teach Web</Link>
             </div>
             <div className="navbar-center hidden lg:flex">
                 <ul className="menu menu-horizontal p-0">
@@ -60,7 +61,15 @@ const Header = () => {
                 </ul>
             </div>
             <div className="navbar-end">
-                <button className="btn btn-error">Contact Me</button>
+                <div className="tooltip mr-4" data-tip={user?.displayName}>
+                    {
+                        user?.photoURL ?
+                            <img className='rounded-full h-14' src={user?.photoURL} alt="" />
+                            :
+                            <p className=''><FaUserCircle></FaUserCircle></p>
+                    }
+                </div>
+                <button className="btn btn-error hidden lg:block">Contact Me</button>
             </div>
         </div>
     );
