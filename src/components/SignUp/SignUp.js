@@ -1,10 +1,14 @@
 import React, { useContext } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import { AuthContext } from '../Context/UserContext';
 
 const SignUp = () => {
     const { createUser, signInWithGoogle } = useContext(AuthContext);
+
+    const navigate = useNavigate();
+    const location = useLocation();
+    const from = location.state?.from?.pathname || '/'
 
     const handelSubmit = event => {
         event.preventDefault();
@@ -27,6 +31,7 @@ const SignUp = () => {
                 // setError('');
                 form.reset();
                 // handelUpdateUserProfile(name, photoURL);
+                navigate(from, { replace: true });
             })
             .catch(error => {
                 console.error(error);
@@ -38,11 +43,13 @@ const SignUp = () => {
             .then(result => {
                 const user = result.user;
                 console.log(user);
+
                 if (user.uid) {
                     toast('Login successfully', {
                         position: "top-center"
                     });
                 }
+                navigate(from, { replace: true });
             })
             .catch(error => {
                 console.error('error', error);

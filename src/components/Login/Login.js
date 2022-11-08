@@ -1,11 +1,14 @@
 import React, { useContext } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import { AuthContext } from '../Context/UserContext';
 import './Login.css';
 
 const Login = () => {
     const { signIn, signInWithGoogle } = useContext(AuthContext);
+    const navigate = useNavigate();
+    const location = useLocation();
+    const from = location.state?.from?.pathname || '/'
 
     const handelSignIn = event => {
         event.preventDefault();
@@ -26,7 +29,7 @@ const Login = () => {
                 }
                 form.reset();
                 // setError('');
-                // navigate(from, { replace: true });
+                navigate(from, { replace: true });
 
             })
             .catch(error => {
@@ -45,6 +48,7 @@ const Login = () => {
                         position: "top-center"
                     });
                 }
+                navigate(from, { replace: true });
             })
             .catch(error => {
                 console.error(error);
