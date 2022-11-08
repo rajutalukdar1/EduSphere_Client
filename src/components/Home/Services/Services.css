@@ -1,0 +1,11 @@
+.img-container img {
+    width: 300px;
+    height: 250px;
+    border-radius: 15px;
+}
+
+.img-container {
+    width: 365px;
+    box-shadow: 2px 3px 2px 3px gray;
+    margin-bottom: 20px;
+}

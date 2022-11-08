@@ -1,5 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import About from '../../About/About';
+import Choose from '../../ChooseUs/Choose';
 import Services from '../Services/Services';
 import './Home.css';
 
@@ -22,6 +24,8 @@ const Home = () => {
                 </div>
             </div>
             <Services></Services>
+            <About></About>
+            <Choose></Choose>
         </div>
     );
 };
