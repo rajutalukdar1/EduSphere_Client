@@ -32,16 +32,16 @@ const route = createBrowserRouter([
             },
             {
                 path: '/blog',
-                element: <PrivetRoute><Blog></Blog></PrivetRoute>
+                element: <Blog></Blog>
             },
             {
                 path: '/services',
-                element: <Services></Services>
+                element: <PrivetRoute><Services></Services></PrivetRoute>
             },
             {
                 path: '/services/:id',
                 loader: ({ params }) => fetch(`http://localhost:5000/services/${params.id}`),
-                element: <ServiceDetails></ServiceDetails>
+                element: <PrivetRoute><ServiceDetails></ServiceDetails></PrivetRoute>
             }
 
         ]
