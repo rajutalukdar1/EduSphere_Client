@@ -16,13 +16,13 @@ const Header = () => {
     const menuItems = <>
         <li className='font-semibold'><Link to='/home'>Home</Link></li>
         <li className='font-semibold'><Link to='/blog'>Blog</Link></li>
+        <li className='font-semibold'><Link to='/services'>Services</Link></li>
 
 
 
         {
             user?.email ?
                 <>
-                    <li className='font-semibold'><Link to='/'>Services</Link></li>
                     <li className='font-semibold'><Link to='/'>My Review</Link></li>
 
                     <li className='font-semibold'>
@@ -53,7 +53,7 @@ const Header = () => {
                 <Link to='/' className='w-1/3'>
                     <img className='' src={url} alt="" />
                 </Link>
-                <Link className=' font-semibold text-2xl' to='/'><span className='text-cyan-400'>Forge</span><span className='text-red-400'>Teacher</span></Link>
+                <Link className=' font-semibold text-2xl' to='/'><span className='text-cyan-400'>Edu</span><span className='text-red-400'>Sphere</span></Link>
             </div>
             <div className="navbar-center hidden lg:flex">
                 <ul className="menu menu-horizontal p-0">

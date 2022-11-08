@@ -6,7 +6,7 @@ const Footer = () => {
         <footer className="footer p-10 bg-neutral text-neutral-content">
             <div>
                 <img className='w-1/5' src="https://i.ibb.co/3F4L1Vt/5-52341-wise-owl-mathematics-removebg-preview.png" alt="" />
-                <Link className=' font-semibold text-2xl' to='/'><span className='text-cyan-400'>Forge</span><span className='text-red-400'>Teacher</span></Link>
+                <Link className=' font-semibold text-2xl' to='/'><span className='text-cyan-400'>Edu</span><span className='text-red-400'>Sphere</span></Link>
             </div>
             <div>
                 <span className="footer-title">Social</span>
