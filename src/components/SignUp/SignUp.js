@@ -1,9 +1,10 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import { AuthContext } from '../Context/UserContext';
 
 const SignUp = () => {
+    const [error, setError] = useState('')
     const { createUser, signInWithGoogle } = useContext(AuthContext);
 
     const navigate = useNavigate();
@@ -28,14 +29,13 @@ const SignUp = () => {
                         position: "top-center"
                     });
                 }
-                // setError('');
+                setError('');
                 form.reset();
-                // handelUpdateUserProfile(name, photoURL);
                 navigate(from, { replace: true });
             })
             .catch(error => {
                 console.error(error);
-                // setError(error.message)
+                setError(error.message)
             })
     }
     const handleGoogleSignIn = () => {
@@ -94,7 +94,7 @@ const SignUp = () => {
                         <div className="form-control mt-6">
                             <button className="btn btn-primary">Sign Up</button>
                         </div>
-                        {/* <p className='text-red-600'>{error}</p> */}
+                        <p className='text-red-600'>{error}</p>
                     </form>
                 </div>
                 <p className='text-center'>-------------Or-------------</p>

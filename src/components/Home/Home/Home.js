@@ -24,6 +24,7 @@ const Home = () => {
                 </div>
             </div>
             <Services></Services>
+            <Link to='/services' className='btn btn-outline btn-primary'>View All</Link>
             <About></About>
             <Choose></Choose>
         </div>

@@ -1,10 +1,11 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import { AuthContext } from '../Context/UserContext';
 import './Login.css';
 
 const Login = () => {
+    const [error, setError] = useState('')
     const { signIn, signInWithGoogle } = useContext(AuthContext);
     const navigate = useNavigate();
     const location = useLocation();
@@ -28,13 +29,13 @@ const Login = () => {
                     });
                 }
                 form.reset();
-                // setError('');
+                setError('');
                 navigate(from, { replace: true });
 
             })
             .catch(error => {
                 console.error(error);
-                // setError(error.message)
+                setError(error.message)
             })
     }
 
@@ -81,7 +82,7 @@ const Login = () => {
                             <button className="btn btn-primary">Login</button>
                         </div>
                         <small><p>Don't have a accounts?<Link to='/signup'>Sign Up now</Link></p></small>
-                        {/* <p className='text-red-600'>{error}</p> */}
+                        <p className='text-red-600'>{error}</p>
                     </form>
                 </div>
                 <p className='text-center'>-------------Or-------------</p>
