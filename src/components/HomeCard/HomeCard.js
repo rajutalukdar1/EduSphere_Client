@@ -1,11 +1,7 @@
-import React from 'react';
-import { useState } from 'react';
-import { useEffect } from 'react';
-import ServicesCard from './ServicesCard';
+import React, { useEffect, useState } from 'react';
+import ServicesCard from '../Home/Services/ServicesCard';
 
-
-
-const Services = () => {
+const HomeCard = () => {
     const [services, setService] = useState([]);
     // const { loading } = useContext(AuthContext);
     const [loading, setLoading] = useState(false);
@@ -17,7 +13,7 @@ const Services = () => {
     }, []);
 
     useEffect(() => {
-        fetch('http://localhost:5000/services')
+        fetch('http://localhost:5000/service')
             .then(res => res.json())
             .then(data => setService(data))
 
@@ -47,4 +43,4 @@ const Services = () => {
     );
 };
 
-export default Services;
+export default HomeCard;
