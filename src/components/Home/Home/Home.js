@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import About from '../../About/About';
+import AboutSuccess from '../../About/AboutSuccess';
 import Choose from '../../ChooseUs/Choose';
 import HomeCard from '../../HomeCard/HomeCard';
 import './Home.css';
@@ -27,6 +28,7 @@ const Home = () => {
             <Link to='/services' className='btn btn-outline btn-primary'>View All</Link>
             <About></About>
             <Choose></Choose>
+            <AboutSuccess></AboutSuccess>
         </div>
     );
 };

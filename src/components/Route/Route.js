@@ -7,6 +7,7 @@ import Home from "../Home/Home/Home";
 import ServiceDetails from "../Home/Services/ServiceDetails";
 import Services from "../Home/Services/Services";
 import Login from "../Login/Login";
+import MyReview from "../MyReview/MyReview";
 import SignUp from "../SignUp/SignUp";
 import PrivetRoute from "./PrivetRoute/PrivetRoute";
 
@@ -38,6 +39,10 @@ const route = createBrowserRouter([
             {
                 path: '/services',
                 element: <PrivetRoute><Services></Services></PrivetRoute>
+            },
+            {
+                path: '/myReview',
+                element: <PrivetRoute><MyReview></MyReview></PrivetRoute>
             },
             {
                 path: '/addServices',

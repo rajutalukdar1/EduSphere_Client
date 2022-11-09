@@ -25,7 +25,7 @@ const Header = () => {
             user?.email ?
                 <>
                     <li className='font-semibold'><Link to='/addServices'>Add service</Link></li>
-                    <li className='font-semibold'><Link to='/'>My Review</Link></li>
+                    <li className='font-semibold'><Link to='/myReview'>My Review</Link></li>
 
                     <li className='font-semibold'>
                         <button onClick={handelLogOut} className='btn-ghost'>Log Out</button>
@@ -55,7 +55,7 @@ const Header = () => {
                 <Link to='/' className='w-1/3'>
                     <img className='' src={url} alt="" />
                 </Link>
-                <Link className=' font-semibold text-2xl' to='/'><span className='text-cyan-400'>Edu</span><span className='text-red-400'>Sphere</span></Link>
+                <Link className='' to='/'><span className='text-cyan-400 text-3xl font-extrabold'>Edu</span><span className='text-red-400 font-semibold text-2xl'>Sphere</span></Link>
             </div>
             <div className="navbar-center hidden lg:flex">
                 <ul className="menu menu-horizontal p-0">

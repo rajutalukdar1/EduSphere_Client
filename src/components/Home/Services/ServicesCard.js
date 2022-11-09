@@ -22,7 +22,7 @@ const ServicesCard = ({ service }) => {
                 <p>
                     {
                         details.length > 100 ?
-                            <>{details.slice(0, 110) + '...'}<Link to={`/services/${_id}`}><small>Read More</small></Link></>
+                            <>{details.slice(0, 100) + '...'}<Link to={`/services/${_id}`}><small>Read More</small></Link></>
                             :
                             <>{details}</>
                     }
