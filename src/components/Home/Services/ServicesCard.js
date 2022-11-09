@@ -15,7 +15,7 @@ const ServicesCard = ({ service }) => {
                 </PhotoView>
             </PhotoProvider>
             <div className="card-body">
-                <h2 className="card-title text-3xl font-bold">Sub: {name}</h2>
+                <h2 className="card-title text-3xl font-bold"><span className='text-cyan-500'>Sub:</span> {name}</h2>
                 <div>
                     <p className='text-2xl text-orange-600 font-semibold'>Price: ${price}</p>
                 </div>

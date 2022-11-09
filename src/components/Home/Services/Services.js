@@ -13,11 +13,11 @@ const Services = () => {
         setLoading(true);
         setTimeout(() => {
             setLoading(false);
-        }, 2000);
+        }, 1500);
     }, []);
 
     useEffect(() => {
-        fetch('http://localhost:5000/services')
+        fetch('https://assignment-no-11-server.vercel.app/services')
             .then(res => res.json())
             .then(data => setService(data))
 
@@ -31,7 +31,8 @@ const Services = () => {
             </div>
             <div>
                 {
-                    loading ? loading : (
+                    loading ? <>
+                        <h1>loading...</h1></> : (
                         <div className='grid gap-6 grid-cols-1 md:grid-cols-2 lg:grid-cols-3'>
                             {
                                 services.map(service => <ServicesCard

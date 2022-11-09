@@ -13,7 +13,7 @@ const HomeCard = () => {
     }, []);
 
     useEffect(() => {
-        fetch('http://localhost:5000/service')
+        fetch('https://assignment-no-11-server.vercel.app/service')
             .then(res => res.json())
             .then(data => setService(data))
 

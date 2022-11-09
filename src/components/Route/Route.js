@@ -1,5 +1,6 @@
 import { createBrowserRouter } from "react-router-dom";
 import Main from "../../layout/Main";
+import AddServices from "../AddServices/AddServices";
 import Blog from "../Blog/Blog";
 import ErrorPage from "../ErrorPage/ErrorPage";
 import Home from "../Home/Home/Home";
@@ -39,8 +40,12 @@ const route = createBrowserRouter([
                 element: <PrivetRoute><Services></Services></PrivetRoute>
             },
             {
+                path: '/addServices',
+                element: <PrivetRoute><AddServices></AddServices></PrivetRoute>
+            },
+            {
                 path: '/services/:id',
-                loader: ({ params }) => fetch(`http://localhost:5000/services/${params.id}`),
+                loader: ({ params }) => fetch(`https://assignment-no-11-server.vercel.app/services/${params.id}`),
                 element: <PrivetRoute><ServiceDetails></ServiceDetails></PrivetRoute>
             }
 
