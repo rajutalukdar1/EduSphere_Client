@@ -2,9 +2,11 @@ import React, { useContext, useState } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import { AuthContext } from '../Context/UserContext';
+import UseTitle from '../UseTitle/UseTitle';
 import './Login.css';
 
 const Login = () => {
+    UseTitle('login')
     const [error, setError] = useState('')
     const { signIn, signInWithGoogle } = useContext(AuthContext);
     const navigate = useNavigate();

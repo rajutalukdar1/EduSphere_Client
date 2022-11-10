@@ -2,8 +2,10 @@ import React, { useContext, useState } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import { AuthContext } from '../Context/UserContext';
+import UseTitle from '../UseTitle/UseTitle';
 
 const SignUp = () => {
+    UseTitle('SignUp')
     const [error, setError] = useState('')
     const { createUser, signInWithGoogle } = useContext(AuthContext);
 

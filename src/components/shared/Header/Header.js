@@ -2,9 +2,11 @@ import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../Context/UserContext';
 import { FaUserCircle } from 'react-icons/fa';
+import UseTitle from '../../UseTitle/UseTitle';
 
 const Header = () => {
     const { logOut, user } = useContext(AuthContext);
+    UseTitle('Home')
 
     const handelLogOut = () => {
         logOut()

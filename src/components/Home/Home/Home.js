@@ -4,9 +4,11 @@ import About from '../../About/About';
 import AboutSuccess from '../../About/AboutSuccess';
 import Choose from '../../ChooseUs/Choose';
 import HomeCard from '../../HomeCard/HomeCard';
+import UseTitle from '../../UseTitle/UseTitle';
 import './Home.css';
 
 const Home = () => {
+    UseTitle('Home')
     return (
         <div>
             <div className='home'>

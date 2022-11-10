@@ -1,6 +1,7 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { PhotoProvider, PhotoView } from 'react-photo-view';
 import { useLoaderData } from 'react-router-dom';
+import { toast } from 'react-toastify';
 import { AuthContext } from '../../Context/UserContext';
 import ReviewCard from '../../ReviewCard/ReviewCard';
 
@@ -36,9 +37,12 @@ const ServiceDetails = () => {
             .then(data => {
                 console.log(data)
                 if (data.acknowledged) {
-                    alert('review successfully')
+                    toast('Review add successfully', {
+                        position: "top-center"
+                    });
                     form.reset();
                 }
+
             })
             .catch(er => console.error(er));
     }
@@ -86,7 +90,7 @@ const ServiceDetails = () => {
             <div className='grid gap-6 grid-cols-1 md:grid-cols-1 lg:grid-cols-1 overflow-x-auto'>
                 {
                     review.map(view => <ReviewCard
-                        key={_id}
+                        key={view._id}
                         view={view}
                     ></ReviewCard>)
                 }
