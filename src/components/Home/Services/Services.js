@@ -22,7 +22,6 @@ const Services = () => {
         fetch('https://assignment-no-11-server.vercel.app/services')
             .then(res => res.json())
             .then(data => setService(data))
-
     }, [])
     return (
         <div>

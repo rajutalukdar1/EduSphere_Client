@@ -16,7 +16,7 @@ const AddServices = () => {
         const email = user?.email || 'unregistered';
         const img = form.photoURL.value;
         const details = form.allDetails.value;
-        console.log(img, price, details, name, email);
+        // console.log(img, price, details, name, email);
 
         const service = {
             name: name,
@@ -36,7 +36,7 @@ const AddServices = () => {
         })
             .then(res => res.json())
             .then(data => {
-                console.log(data)
+                // console.log(data)
                 if (data.acknowledged) {
                     toast('Services add successfully', {
                         position: "top-center"

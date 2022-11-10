@@ -24,15 +24,34 @@ const Login = () => {
         signIn(email, password)
             .then(result => {
                 const user = result.user;
-                console.log(user);
+                const currentUser = {
+                    email: user.email
+                }
+                console.log(currentUser);
                 if (user.uid) {
                     toast('Login successfully', {
                         position: "top-center"
                     });
                 }
-                form.reset();
-                setError('');
-                navigate(from, { replace: true });
+
+                // get jwt token
+
+                fetch('https://assignment-no-11-server.vercel.app/jwt', {
+                    method: 'POST',
+                    headers: {
+                        'content-type': 'application/json'
+                    },
+                    body: JSON.stringify(currentUser)
+                })
+                    .then(res => res.json())
+                    .then(data => {
+                        console.log(data);
+                        localStorage.setItem('Jwt-token', data.token);
+                        form.reset();
+                        setError('');
+                        navigate(from, { replace: true });
+                    })
+
 
             })
             .catch(error => {

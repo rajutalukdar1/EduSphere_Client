@@ -48,11 +48,15 @@ const ServiceDetails = () => {
     }
 
     useEffect(() => {
-        fetch('https://assignment-no-11-server.vercel.app/reviews')
+        fetch(`https://assignment-no-11-server.vercel.app/reviews?email=${user.email}`, {
+            headers: {
+                authorization: `Bearer ${localStorage.getItem('Jwt-token')}`
+            }
+        })
             .then(res => res.json())
             .then(data => setReview(data))
 
-    }, [])
+    }, [user?.email]);
     return (
         <div>
             <section>
@@ -87,7 +91,7 @@ const ServiceDetails = () => {
                     </form>
                 </div>
             </section>
-            <div className='grid gap-6 grid-cols-1 md:grid-cols-1 lg:grid-cols-1 overflow-x-auto'>
+            <div className='grid gap-6 grid-cols-1 md:grid-cols-1 lg:grid-cols-2 overflow-x-auto'>
                 {
                     review.map(view => <ReviewCard
                         key={view._id}
